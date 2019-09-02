@@ -1,0 +1,4 @@
+
+Add new URL - 
+path('url/', view, name='name')
+
