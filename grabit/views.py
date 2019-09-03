@@ -9,3 +9,12 @@ def home(request):
 def login(request):
     response = {}
     return render_to_response('login.html', {'response':response})
+
+def peasant(request):
+    response = {}
+    return render_to_response('peasant.html', {'response':response})
+
+def worthy(request):
+    response = {}
+    return render_to_response('worthy.html', {'response':response})
+

@@ -1,5 +1,83 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-    
+<div class="jumbotron jumbotron-fluid">
+
+        <div  class="d-flex justify-content-center align-items-center">
+            <img class="img-responsive" id="thor-image" src="{% static 'img/thor-hammer.png' %}" alt="" srcset="">
+        </div>
+        <div  class="d-flex justify-content-center align-items-center">
+            <h1 class="display-3 font-weight-bold"><span class="text-danger">Grab</span>-it!</h1>
+        </div>
+        <div  class="d-flex justify-content-center align-items-center">
+            <p class="text-center subtitle">Prove <span class="text-danger font-weight-bold" >Thor</span> that you are worthy enough! <br> You have only 1 chance!</p>            
+        </div>
+        <div class="d-flex justify-content-center align-items-center">            
+            <a href="#box-items" class="btn btn-large btn-danger scroll">Click here to grab an item you feel you are worthy enough for </a>
+        </div>
+</div>
+<div id="box-items" class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="card">
+                    <img class="card-img-top" src="" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Grab this!</a>
+                    </div>  
+                </div>
+            </div>
+            <div class="col-sm-3">
+                    <div class="card">
+                        <img class="card-img-top" src="" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-danger">Grab this!</a>
+                        </div>  
+                    </div>
+            </div>
+            <div class="col-sm-3">
+                    <div class="card">
+                        <img class="card-img-top" src="" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-danger">Grab this!</a>
+                        </div>  
+                    </div>
+            </div>
+            <div class="col-sm-3">
+                    <div class="card">
+                        <img class="card-img-top" src="" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-danger">Grab this!</a>
+                        </div>  
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                        <div class="card">
+                            <img class="card-img-top" src="http://images.csirait.com/core-photos/HOD.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-danger">Grab this!</a>
+                            </div>  
+                        </div>
+                </div>
+                <div class="col-sm-3">
+                        <div class="card">
+                            <img class="card-img-top" src="" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-danger">Grab this!</a>
+                            </div>  
+                        </div>
+                </div>
+        </div>
+    </div>
 {% endblock %}

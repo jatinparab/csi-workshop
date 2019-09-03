@@ -1,0 +1,25 @@
+body{
+    background-color:#e9ecef;
+}
+
+#thor-image{
+    height: 300px;
+}
+
+#thor-proud{
+    height: 350px;
+}
+#thor-image{
+    height: 300px;
+}
+.subtitle{
+    font-size:2em;
+}
+
+#box-items{
+    padding:20px;
+}
+
+.card{
+    margin:10px;
+}
