@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+{{response}}
 <div class="jumbotron jumbotron-fluid">
 
         <div  class="d-flex justify-content-center align-items-center">
@@ -18,66 +19,18 @@
 </div>
 <div id="box-items" class="container">
         <div class="row">
+            {% for item in response.items %}
             <div class="col-sm-3">
                 <div class="card">
-                    <img class="card-img-top" src="" alt="Card image cap">
+                    <img class="card-img-top" src="media/{{item.img}}" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-danger">Grab this!</a>
+                        <h5 class="card-title">{{item.title}}</h5>
+                        <p class="card-text">{{item.description}}</p>
+                        <a href="{% url 'grab' item_id=item.uuid %}" class="btn btn-danger">Grab this!</a>
                     </div>  
                 </div>
             </div>
-            <div class="col-sm-3">
-                    <div class="card">
-                        <img class="card-img-top" src="" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-danger">Grab this!</a>
-                        </div>  
-                    </div>
-            </div>
-            <div class="col-sm-3">
-                    <div class="card">
-                        <img class="card-img-top" src="" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-danger">Grab this!</a>
-                        </div>  
-                    </div>
-            </div>
-            <div class="col-sm-3">
-                    <div class="card">
-                        <img class="card-img-top" src="" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-danger">Grab this!</a>
-                        </div>  
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                        <div class="card">
-                            <img class="card-img-top" src="http://images.csirait.com/core-photos/HOD.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-danger">Grab this!</a>
-                            </div>  
-                        </div>
-                </div>
-                <div class="col-sm-3">
-                        <div class="card">
-                            <img class="card-img-top" src="" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-danger">Grab this!</a>
-                            </div>  
-                        </div>
-                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
