@@ -5,6 +5,8 @@ from django.urls import resolve
 
 def find_worth(function):
     def _function(request, *args, **kwargs):
+        if request.user.is_anonymous:
+            return redirect(reverse('login'))
         if request.user.is_worthy is None:
             if resolve(request.path_info).url_name != 'home':
                 return redirect(reverse('home'))

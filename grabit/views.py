@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response, redirect, render
+from django.shortcuts import render_to_response, redirect, render, reverse
 from django.urls import resolve
 from .decorators import find_worth
 from .services import get_items, grab_item
@@ -20,7 +20,13 @@ def home(request):
     items = get_items()
     response = {}
     response['items'] = items
+    response['user'] = request.user.is_worthy
     return render_to_response('home.html', {'response': response})
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('home')
 
 
 def login_user(request):
@@ -48,6 +54,7 @@ def peasant(request):
     return render_to_response('peasant.html', {'response': response})
 
 
+@find_worth
 def worthy(request):
     response = {}
     return render_to_response('worthy.html', {'response': response})

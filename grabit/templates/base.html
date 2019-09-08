@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Grab-It!</title>
 </head>
 <body>
@@ -21,20 +20,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script>
   $(document).ready(function(){
- let scroll_link = $('.scroll');
-
-  //smooth scrolling -----------------------
-  scroll_link.click(function(e){
-      e.preventDefault();
-      let url = $('body').find($(this).attr('href')).offset().top;
-      $('html, body').animate({
-        scrollTop : url
-      },700);
-      $(this).parent().addClass('active');
-      $(this).parent().siblings().removeClass('active');
-      return false;	
-   });
+    $(function(){
+  $('.grab').click(function(){
+    site = $(this).attr('site');
+    var delay = 7000; 
+setTimeout(function(){ window.location = site; }, delay);
+  });
 });
+ 
+});
+
   </script>
 </body>
 
