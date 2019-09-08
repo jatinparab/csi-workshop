@@ -30,6 +30,8 @@ DEBUG = True
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
 
+AUTH_USER_MODEL = 'grabit.User'
+
 ALLOWED_HOSTS = ['*']
 
 LOGIN_URL = '/login'
