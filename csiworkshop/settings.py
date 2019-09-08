@@ -22,12 +22,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'u3$%c#-%8&yf71@g!l8i#6t1*1y^ln^x#3yxk9&$j9g!i^uc@c'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
+MEDIA_URL = '/media/'
+
+AUTH_USER_MODEL = 'grabit.User'
+
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
 
 LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
