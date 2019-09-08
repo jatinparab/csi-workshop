@@ -6,7 +6,7 @@ from .services import get_items, grab_item
 
 # Create your views here.
 
-
+@login_required
 @find_worth
 def home(request):
     items = get_items()
@@ -17,8 +17,9 @@ def home(request):
 
 def login(request):
     response = {}
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect(reverse('home'))
+    
     return render_to_response('login.html', {'response': response})
 
 @find_worth
@@ -31,9 +32,12 @@ def worthy(request):
     response = {}
     return render_to_response('worthy.html', {'response': response})
 
+
 def signup(request):
     response = {}
-    return render_to_response('worthy.html', {'response': response})
+    if request.user.is_authenticated:
+        return redirect(reverse('home'))
+    return render_to_response('signup.html', {'response': response})
 
 def grab(request, item_id):
     uuid = item_id
