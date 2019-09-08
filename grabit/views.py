@@ -1,12 +1,17 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, reverse, redirect, render
+from django.urls import resolve
 from .decorators import find_worth
 from .services import get_items, grab_item
+from .forms import SignUpForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 
 # Create your views here.
+
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 @login_required
 @find_worth
@@ -14,6 +19,7 @@ def home(request):
     items = get_items()
     response = {}
     response['items'] = items
+    response['name'] = reverse('home')
     return render_to_response('home.html', {'response': response})
 
 
@@ -47,10 +53,18 @@ def worthy(request):
 
 
 def signup(request):
-    response = {}
-    if request.user.is_authenticated:
-        return redirect(reverse('home'))
-    return render_to_response('signup.html', {'response': response})
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
 
 def grab(request, item_id):
     uuid = item_id
