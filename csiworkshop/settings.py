@@ -32,7 +32,7 @@ MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'grabit.User'
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
