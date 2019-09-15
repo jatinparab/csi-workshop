@@ -14,14 +14,58 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
-@login_required
-@find_worth
+# @login_required
+# @find_worth
 def home(request):
     items = get_items()
     response = {}
     response['items'] = items
     response['user'] = request.user.is_worthy
     return render_to_response('home.html', {'response': response})
+
+
+# @find_worth
+def peasant(request):
+    response = {}
+    return render_to_response('peasant.html', {'response': response})
+
+
+# @find_worth
+def worthy(request):
+    response = {}
+    return render_to_response('worthy.html', {'response': response})
+
+
+
+
+
+
+# Pre-defined ##############################################################
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
+
+
+def grab(request, item_id):
+    uuid = item_id
+    request.user.is_worthy = grab_item(uuid)
+    request.user.save()
+    if grab_item(uuid):
+        return HttpResponseRedirect('/worthy')
+    else:
+        return HttpResponseRedirect('/peasant')
 
 
 def logout_user(request):
@@ -46,37 +90,3 @@ def login_user(request):
         else:
             messages.error(request, 'Username or password incorrect.')
     return render(request, 'login.html', {'response': response})
-
-
-@find_worth
-def peasant(request):
-    response = {}
-    return render_to_response('peasant.html', {'response': response})
-
-
-@find_worth
-def worthy(request):
-    response = {}
-    return render_to_response('worthy.html', {'response': response})
-
-
-def signup(request):
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('home')
-    else:
-        form = SignUpForm()
-    return render(request, 'signup.html', {'form': form})
-
-
-def grab(request, item_id):
-    uuid = item_id
-    request.user.is_worthy = grab_item(uuid)
-    request.user.save()
-    return HttpResponseRedirect('/')
