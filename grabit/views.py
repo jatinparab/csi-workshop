@@ -13,23 +13,6 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
-# @login_required
-# @find_worth
-def home(request):
-    response = {}
-    return render_to_response('home.html', {'response': response})
-
-
-# @find_worth
-def peasant(request):
-    response = {}
-    return render_to_response('peasant.html', {'response': response})
-
-
-# @find_worth
-def worthy(request):
-    response = {}
-    return render_to_response('worthy.html', {'response': response})
 
 
 
@@ -37,6 +20,13 @@ def worthy(request):
 
 
 # Pre-defined ##############################################################
+
+
+
+def test(request):
+    response = {
+    }
+    return render_to_response('test.html', {'response': response})
 
 
 def signup(request):
