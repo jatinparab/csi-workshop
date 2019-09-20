@@ -1,6 +1,5 @@
 # Grab-it!
-Codebase for CSI-RAIT Web Development Workshop using Django Web-framework.
-
+A small luck-based game built during CSI-RAIT's Web Development Workshop using [Django Web Framework](https://www.djangoproject.com/)
 ## Quick Access 
 
 ### Front-end
