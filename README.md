@@ -1,5 +1,11 @@
 # Grab-it!
 A small luck-based game built during CSI-RAIT's Web Development Workshop using [Django Web Framework](https://www.djangoproject.com/)
+
+## Quiz Links
+1 - [Basics](http://bit.ly/csi-webdev-1)
+2 - [Web Architecture](http://bit.ly/csi-webdev-2)
+3 - [Web Technologies](http://bit.ly/csi-webdev-3)
+
 ## Quick Access 
 
 ### Front-end
