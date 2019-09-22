@@ -22,6 +22,13 @@ A small luck-based game built during CSI-RAIT's Web Development Workshop using [
 {% endblock %}
 ```
 
+**BASE VIEWS**
+```
+def name(request):
+    response = {}
+    return render_to_response('name.html', {'response': response})
+```
+
 **Column HTML**
 ```
 <div id="box-items" class="container">
